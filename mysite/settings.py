@@ -42,7 +42,7 @@ DATABASES = {
     'default': dj_database_url.config('DATABASE_URL')
 }
 
-ALLOWED_HOSTS = ["build-in-system.herokuapp.com", "localhost"]
+ALLOWED_HOSTS = ["pvs-test.herokuapp.com", "localhost"]
 
 
 # Application definition ---------------
