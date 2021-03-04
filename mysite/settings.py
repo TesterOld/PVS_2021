@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-
+#===================================Git Heroku file!!!!!!!!!!!!!!===========================
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -21,12 +21,25 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!№
 # lokal Для локального не потрібно!
-SECRET_KEY = '6vogf$xi(74f=ly=!$h+l7@rs0!ig4_x0y*)sj^m939^g$n$d3'
+
+#===================================Heroku !!!!!!!!!!!!!!!!-----------------
+#SECRET_KEY = '6vogf$xi(74f=ly=!$h+l7@rs0!ig4_x0y*)sj^m939^g$n$d3'
+SECRET_KEY = os.environ.get('SECRET_KEY')
+
+
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+#===================================Heroku !!!!!!!!!!!!!!!!-----------------
+#ALLOWED_HOSTS = []
+
+DATABASES = {
+    'default': dj_database_url.config('DATABASE_URL')
+}
+
+ALLOWED_HOSTS = ["build-in-system.herokuapp.com", "localhost"]
 
 
 # Application definition ---------------
@@ -82,6 +95,8 @@ DATABASES = {
 }
 
 '''
+#================================Heroky ===================
+'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -92,6 +107,10 @@ DATABASES = {
         'PORT': '5432',
     }
 }
+'''
+
+
+
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
